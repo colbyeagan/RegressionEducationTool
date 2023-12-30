@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scatter Plot Visualization</title>
+</head>
+<body>
+    <h1>Scatter Plot Visualization</h1>
+    <form method="post">
+        <label>x_mean: <input type="text" name="x_mean"></label><br>
+        <label>x_std: <input type="text" name="x_std"></label><br>
+        <label>y_mean: <input type="text" name="y_mean"></label><br>
+        <label>y_std: <input type="text" name="y_std"></label><br>
+        <label>num_of_points: <input type="text" name="num_of_points"></label><br>
+        <label>order: <input type="text" name="order"></label><br>
+        <input type="submit" value="Show Scatter">
+    </form>
+    <div>
+        {% if plot_div %}
+            {{ plot_div|safe }}
+        {% endif %}
+    </div>
+</body>
+</html>
