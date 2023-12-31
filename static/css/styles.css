@@ -27,6 +27,37 @@ label {
     width: 100%;
 }
 
+.distributions {
+    display: flex;
+    flex-direction: row;
+}
+
+#x_dist1{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#y_dist1{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#x_dist2{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#y_dist2{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 input {
     background-color: white;
     border-radius: 0px !important;

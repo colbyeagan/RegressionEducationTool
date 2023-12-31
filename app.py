@@ -17,9 +17,15 @@ def index():
         y_std = float(request.form['y_std'])
         order = int(request.form['order'])
 
+        x_dist = request.form.get('x_dist')
+        y_dist = request.form.get('y_dist')
+        print(x_dist)
+        print(y_dist)
+
+
         # Create the plot
         try:
-            fig = create_dist(x_mean, x_std, y_eq, y_mean, y_std, num_of_points, order)
+            fig = create_dist(x_mean, x_std, y_eq, y_mean, y_std, num_of_points, order, x_dist, y_dist)
 
             # Save the plot as an HTML file
             plot_div = fig.to_html(full_html=False, default_height=500, default_width=700)

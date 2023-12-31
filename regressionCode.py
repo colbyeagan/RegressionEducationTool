@@ -26,9 +26,14 @@ def convert_text(text):
     converted_text = text.translate(mapping)
     return converted_text
 
-def create_dist(x_mean: float, x_std: float, y_equation: str, y_noise_mean: float, y_noise_std, num_of_points: int, order: int):
+def create_dist(x_mean: float, x_std: float, y_equation: str, y_noise_mean: float, y_noise_std, num_of_points: int, order: int, x_dist: str, y_dist: str):
     # Generate your x and y data points
-    x = np.random.normal(x_mean, x_std, num_of_points)
+    if(x_dist == "norm"):
+        x = np.random.normal(x_mean, x_std, num_of_points)
+    else:
+        xlow = x_mean-(x_std/2)
+        xhigh = x_mean+(x_std/2)
+        x = np.random.uniform(xlow, xhigh, num_of_points)
     
     # Create a sympy symbol for 'x'
     x_sym = symbols('x')
@@ -40,7 +45,12 @@ def create_dist(x_mean: float, x_std: float, y_equation: str, y_noise_mean: floa
     y = np.array([float(y_equation_parsed.subs(x_sym, val)) for val in x])
     
     # Add noise to 'y'
-    y += np.random.normal(y_noise_mean, y_noise_std, num_of_points)
+    if(y_dist=="norm"):
+        y += np.random.normal(y_noise_mean, y_noise_std, num_of_points)
+    else:
+        ylow = y_noise_mean-(y_noise_std/2)
+        yhigh = y_noise_mean+(y_noise_std/2)
+        y += np.random.uniform(ylow, yhigh, num_of_points)
 
     # Add a column of ones to account for the y intercept constant
     A = np.column_stack((np.ones(x.shape[0]), x))
