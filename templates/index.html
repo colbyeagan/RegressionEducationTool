@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Scatter Plot Visualization</title>
+    <link rel = "stylesheet" href = "../static/css/styles.css">  
 </head>
 <body>
-    <h1>Scatter Plot Visualization</h1>
-    <form method="post">
-        <label>x_mean: <input type="text" name="x_mean"></label><br>
-        <label>x_std: <input type="text" name="x_std"></label><br>
-        <label>y_mean: <input type="text" name="y_mean"></label><br>
-        <label>y_std: <input type="text" name="y_std"></label><br>
-        <label>num_of_points: <input type="text" name="num_of_points"></label><br>
-        <label>order: <input type="text" name="order"></label><br>
-        <input type="submit" value="Show Scatter">
-    </form>
-    <div>
-        {% if plot_div %}
-            {{ plot_div|safe }}
-        {% endif %}
+    <h1 id="blue">Scatter Plot Visualization</h1>
+    <div class="grid-container">
+        <form method="post">
+            <label class="col-one">num_of_points: <input type="number" name="num_of_points" maxlength="4" placeholder="e.g. 5000" required></label><br>
+            <label class="col-one">x_mean: <input type="number" name="x_mean" placeholder="e.g. 5" required></label><br>
+            <label class="col-one">x_std: <input type="number" name="x_std" placeholder="e.g. 1" required></label><br>
+            <label class="col-one">y = : <input type="text" name="y_eq" placeholder="e.g. x^2 + 2x + 15" required></label><br>
+            <label class="col-two">y noise mean: <input type="number" name="y_mean" placeholder="e.g. 5" required></label><br>
+            <label class="col-two">y noise std dev: <input type="number" name="y_std" placeholder="e.g. 1" required></label><br>
+            <label class="col-two">order: <input type="number" name="order" placeholder="e.g. 2 for an x^2 polynomial fit" required></label><br>
+            <hr>
+            <input id="scatterButton" type="submit" value="Show Scatter">
+        </form>
+    
+        <div class="plot_adjustments">
+            <br>
+            {% if plot_div %}
+                {{ plot_div|safe }}
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>

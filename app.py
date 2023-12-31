@@ -9,20 +9,24 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         # Get parameters from the form
+        num_of_points = int(request.form['num_of_points'])
         x_mean = float(request.form['x_mean'])
         x_std = float(request.form['x_std'])
+        y_eq = request.form['y_eq']
         y_mean = float(request.form['y_mean'])
         y_std = float(request.form['y_std'])
-        num_of_points = int(request.form['num_of_points'])
         order = int(request.form['order'])
 
         # Create the plot
-        fig = create_dist(x_mean, x_std, y_mean, y_std, num_of_points, order)
+        try:
+            fig = create_dist(x_mean, x_std, y_eq, y_mean, y_std, num_of_points, order)
 
-        # Save the plot as an HTML file
-        plot_div = fig.to_html(full_html=False, default_height=500, default_width=700)
+            # Save the plot as an HTML file
+            plot_div = fig.to_html(full_html=False, default_height=500, default_width=700)
 
-        return render_template('index.html', plot_div=plot_div)
+            return render_template('index.html', plot_div=plot_div)
+        except:
+            return render_template('index.html', plot_div="Invalid input, please make sure that your equation for the y data only uses numbers, the character lowercase x, and the carat '^' to symbolize exponents")
 
     return render_template('index.html')
 
