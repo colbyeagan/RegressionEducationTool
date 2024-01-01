@@ -23,7 +23,7 @@ $$p = A\hat{x}$$
   
 Next to calculate R², we use the following equation ---------------------------------------------------------  
 
-$$`R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2} = R^2 = 1 - \frac{SSR}{SST}`$$
+$`R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2} = R^2 = 1 - \frac{SSR}{SST}`$
 
 The numerator of this equation is called the sum squared regression (SSR). It is the sum of the squared differences between all of the actual y data points and their predicted values on the lne of best fit.  
 The denominator is called the total sum of squares (SST). It is the sum of the squared differences between all of the actual y data points and the mean of all of the y data points.
