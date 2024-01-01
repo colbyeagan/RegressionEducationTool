@@ -13,9 +13,18 @@ body {
     gap: 5px;
 }
 
+#scatterButton:hover{
+    background-color: darkgrey;
+}
+
+#scatterButton:active{
+    background-color: grey;
+}
+
 h1 {
     color: white;
     padding: 10px;
+    font-weight: 500;
 }
 
 label {
@@ -60,11 +69,11 @@ label {
 
 input {
     background-color: white;
-    border-radius: 0px !important;
+    border-radius: 10px !important;
+    border: 0;
     color: black;
     width: 90%;
     height: 30px;
-    font-family: "Monserrat", sans-serif;
     font-size: 12px;
     margin: 10px;
   }

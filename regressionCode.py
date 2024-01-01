@@ -116,10 +116,107 @@ def create_dist(x_mean: float, x_std: float, y_equation: str, y_noise_mean: floa
         if i%3 == 0:
             equation += "<br>"
 
+    # Used to edit the y equation output to the legend of graph
+    def add_br_every_fourth_space(input_string):
+        words = input_string.split()
+        updated_string = ""
+        count = 0
+
+        for word in words:
+            updated_string += word + " "
+            count += 1
+            if count % 4 == 0:
+                updated_string += "<br>"
+
+        return updated_string.strip()
+
     # Scatter plot
     fig.add_trace(go.Scatter(x=x, y=y, mode='markers', name='Data'))
+
     # Line of best fit
-    fig.add_trace(go.Scatter(x=x_curve, y = y_curve, mode='lines', name=f"{equation}R² = {round(r_squared, 3)}"))
+    fig.add_trace(go.Scatter(x=x_curve, y = y_curve, mode='lines', name=f"{equation}", marker=dict(size=7, color="orangered", symbol='square')))
+
+    #Add R^2
+    fig.add_trace(go.Scatter(
+                    x=[None],
+                    y=[None],
+                    mode="lines",
+                    name=f"R²: {r_squared}<br>",
+                    marker=dict(size=7, color="orangered", symbol='square'),
+                ))
+    
+    # Add entered data
+    fig.add_trace(go.Scatter(
+                x=[None],
+                y=[None],
+                mode="markers",
+                name=f"# of data points: {num_of_points}",
+                marker=dict(size=7, color="orange", symbol='square'),
+            ))
+
+    fig.add_trace(go.Scatter(
+                x=[None],
+                y=[None],
+                mode="markers",
+                name=f"x_data_mean: {x_mean}",
+                marker=dict(size=7, color="orange", symbol='square'),
+            ))
+    
+    fig.add_trace(go.Scatter(
+            x=[None],
+            y=[None],
+            mode="markers",
+            name=f"x_dist: {x_dist}",
+            marker=dict(size=7, color="orange", symbol='square'),
+        ))
+    
+    fig.add_trace(go.Scatter(
+                x=[None],
+                y=[None],
+                mode="markers",
+                name=f"x_data_std/range: {x_std}",
+                marker=dict(size=7, color="orange", symbol='square'),
+            ))
+    
+    fig.add_trace(go.Scatter(
+                x=[None],
+                y=[None],
+                mode="markers",
+                name=f"y_data_equation: {add_br_every_fourth_space(y_equation)}",
+                marker=dict(size=7, color="orange", symbol='square'),
+            ))
+    
+    fig.add_trace(go.Scatter(
+                x=[None],
+                y=[None],
+                mode="markers",
+                name=f"y_noise_mean: {y_noise_mean}",
+                marker=dict(size=7, color="orange", symbol='square'),
+            ))
+    
+    fig.add_trace(go.Scatter(
+                x=[None],
+                y=[None],
+                mode="markers",
+                name=f"y_noise_dist: {y_dist}",
+                marker=dict(size=7, color="orange", symbol='square'),
+            ))
+    
+    fig.add_trace(go.Scatter(
+                x=[None],
+                y=[None],
+                mode="markers",
+                name=f"y_noise_std/range: {y_noise_std}",
+                marker=dict(size=7, color="orange", symbol='square'),
+            ))
+    
+    fig.add_trace(go.Scatter(
+                x=[None],
+                y=[None],
+                mode="markers",
+                name=f"order of model: {order}",
+                marker=dict(size=7, color="orange", symbol='square'),
+            ))
 
     # Update layout for better visualization
     fig.update_layout(
