@@ -1,6 +1,8 @@
 # Linear and Higher Order Regression Dashboard
 
-I created this project to practice my computational math skills. This is a web app which can be ran and used to show how regression fits models data and is effected by noise. By generating X data points in either a normal or uniform distribution and then making the Y coordinates of those points a transformation of the X values, one can create their desired coorelation. Then, by adding noise through the form of a normal or uniform random distribution to the y coordinates, one can visualize the effect of noise on coorelation in data. The final step requires an oI walk through my steps for calculating regression below. 
+I created this project to practice my computational math skills. This is a web app which can be ran and used to show how regression models work on data and how they are effected by noise. Firthermore, the regression is not calculated by a package, I wrote the code to actually calculate lines of best fits of any order using linear algebra. There are extensive docs which show the process for writing such code which can be seen in this readme and followed along with in the jupyter notebook of this repository. 
+
+To use this web app for vizualizing regression on data, one can generate X data points in either a normal or uniform distribution and then making the Y coordinates of those points a transformation of the X values, one can create their desired coorelation. Then, by adding noise through the form of a normal or uniform random distribution to the y coordinates, one can visualize the effect of noise on coorelation in data. The final step requires an oI walk through my steps for calculating regression below. 
 
 # Linear regression walkthrough
 There are many ways to calculate regression, however using matrices is one of my favorite ways because of how scalable it is to higher orders as well as how quick it is when the A matrix is invertible upon projection to the nearest subspace.  
