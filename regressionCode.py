@@ -28,7 +28,7 @@ def convert_text(text):
 
 def create_dist(x_mean: float, x_std: float, y_equation: str, y_noise_mean: float, y_noise_std, num_of_points: int, order: int, x_dist: str, y_dist: str):
     # Generate your x and y data points
-    if(x_dist == "norm"):
+    if(x_dist == "normal"):
         x = np.random.normal(x_mean, x_std, num_of_points)
     else:
         xlow = x_mean-(x_std/2)
@@ -45,7 +45,7 @@ def create_dist(x_mean: float, x_std: float, y_equation: str, y_noise_mean: floa
     y = np.array([float(y_equation_parsed.subs(x_sym, val)) for val in x])
     
     # Add noise to 'y'
-    if(y_dist=="norm"):
+    if(y_dist=="normal"):
         y += np.random.normal(y_noise_mean, y_noise_std, num_of_points)
     else:
         ylow = y_noise_mean-(y_noise_std/2)
